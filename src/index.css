@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Pokemon GB", "sans-serif";
+  --font-body: "Mulish", "sans-serif";
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -39,6 +44,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "Mulish", "sans-serif";
 }
 
 /* A elements that don't have a class get default styles */
@@ -75,4 +81,9 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+input:focus {
+  outline: none;
+  border: none;
 }

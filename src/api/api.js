@@ -1,7 +1,7 @@
 const baseUrl = import.meta.env.VITE_API_URL;
 
-export function getPkmnImg(id) {
-    return `raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+export function getPkmnImgUrl(id) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
 }
 
 export async function getAllPkmns() {
