@@ -38,11 +38,9 @@ dd {
   margin: 0;
 }
 
-/* Remove list styles, margin and padding on ul, ol elements with a class, which suggests default styling will be removed */
+/* Remove list styles on ul, ol elements with a class, which suggests default styling will be removed */
 ul:where([class]),
 ol:where([class]) {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 

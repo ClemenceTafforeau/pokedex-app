@@ -2,7 +2,12 @@ export function PokemonStatsItem({stat}) {
     const maxWidth = 280;
 
     function calcProgressBarWidth() {
-        return stat.value * maxWidth / stat.maxValue;
+        if (stat.value < stat.maxValue) {
+            return stat.value * maxWidth / stat.maxValue;
+        } else {
+            return maxWidth;
+        }
+
     }
 
     return (

@@ -54,6 +54,7 @@ export async function getAllReviews(id) {
     try {
         const response = await axios.get(url);
         if (response) {
+
             return response.data;
         }
     } catch (error) {
@@ -63,5 +64,14 @@ export async function getAllReviews(id) {
 
 export async function postReview(review) {
     const url = `${baseUrl}reviews/`;
-    const body = JSON.stringify(review);
+
+    try {
+        const response = await axios.post(url, JSON.stringify(review));
+        if (response) {
+
+            return response.data;
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 }

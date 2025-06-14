@@ -93,7 +93,7 @@ export function HomePage() {
     }
 
     return (
-        <main className="px-8 py-4 max-w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6">
+        <main className="px-8 py-4 w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6">
             <div>
                 {pokemons ? displaySearchBar() : displayLoading()}
             </div>

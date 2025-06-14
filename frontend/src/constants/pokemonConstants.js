@@ -33,4 +33,7 @@ export const MAX_STAT = {
 };
 
 export const MIN_PKMN_ID = 1;
+
 export const MAX_PKMN_ID = 151;
+
+export const DEFAULT_AUTHOR = "Me";
