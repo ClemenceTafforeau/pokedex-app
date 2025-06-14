@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const baseUrl = import.meta.env.VITE_API_URL;
 
 export function getPkmnImgUrl(id) {
@@ -8,10 +10,10 @@ export async function getAllPkmns() {
     const url = `${baseUrl}pokemons`;
 
     try {
-        const response = await fetch(url);
-        if (response.ok) {
+        const response = await axios.get(url);
+        if (response) {
 
-            return await response.json();
+            return response.data;
         }
     } catch (error) {
         console.error(error.message);
@@ -22,10 +24,10 @@ export async function getPkmn(id) {
     const url = `${baseUrl}pokemons/${id}`;
 
     try {
-        const response = await fetch(url);
-        if (response.ok) {
+        const response = await axios.get(url);
+        if (response) {
 
-            return await response.json();
+            return response.data;
         }
     } catch (error) {
         console.error(error.message);
@@ -34,6 +36,16 @@ export async function getPkmn(id) {
 
 export async function updatePkmn(id, content) {
     const url = `${baseUrl}pokemons/${id}`;
+
+    try {
+        const response = await axios.patch(url, JSON.stringify(content));
+        if (response) {
+
+            return response.data;
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 export async function getAllReviews(id) {

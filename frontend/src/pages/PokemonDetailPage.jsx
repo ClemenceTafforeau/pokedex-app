@@ -19,7 +19,7 @@ export function PokemonDetailPage() {
         loadPkmn().catch(error => {
             console.error('Failed to load Pokemon: ', error);
         });
-    }, []);
+    }, [pokemon]);
 
     // Getters and setters
 

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "scripts": {
+    "server": "npx json-server database/db.json --port 3001"
+  }
+}

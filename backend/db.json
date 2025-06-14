@@ -2,7 +2,7 @@
   "pokemons": [
     {
       "id": "1",
-      "like": 11,
+      "like": 19,
       "name": "Bulbizarre",
       "types": [
         "Grass",
@@ -31,8 +31,8 @@
         "Attack": 49,
         "Defense": 49,
         "Special attack": 65,
-        "Special defense": 65,
-        "Speed": 45
+        "Special defense": 45,
+        "Speed": 60
       }
     },
     {
