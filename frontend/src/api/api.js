@@ -50,6 +50,15 @@ export async function updatePkmn(id, content) {
 
 export async function getAllReviews(id) {
     const url = `${baseUrl}reviews/?pokemonId=${id}`;
+
+    try {
+        const response = await axios.get(url);
+        if (response) {
+            return response.data;
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 export async function postReview(review) {

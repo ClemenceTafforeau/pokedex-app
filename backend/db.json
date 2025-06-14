@@ -2,7 +2,7 @@
   "pokemons": [
     {
       "id": "1",
-      "like": 19,
+      "like": 21,
       "name": "Bulbizarre",
       "types": [
         "Grass",
@@ -107,7 +107,7 @@
     },
     {
       "id": "4",
-      "like": 2,
+      "like": 5,
       "name": "Salamèche",
       "types": [
         "Fire"
@@ -312,7 +312,7 @@
     },
     {
       "id": "10",
-      "like": 0,
+      "like": 4,
       "name": "Chenipan",
       "types": [
         "Bug"

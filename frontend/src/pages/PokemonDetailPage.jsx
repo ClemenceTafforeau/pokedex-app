@@ -1,4 +1,4 @@
-import {useParams} from "react-router";
+import {useLocation, useParams} from "react-router";
 import {Navigation as NavigationComponent} from "../components/shared/Navigation.jsx";
 import {getPkmn, getPkmnImgUrl} from "../api/api.js";
 import {useEffect, useState} from "react";
@@ -8,7 +8,7 @@ import {ReviewCard} from "../components/user/ReviewCard.jsx";
 
 export function PokemonDetailPage() {
     const [pokemon, setPokemon] = useState(null);
-
+    const location = useLocation();
     const params = useParams();
     const pokemonId = params.id;
     const url = getPkmnImgUrl(pokemonId);
@@ -19,7 +19,7 @@ export function PokemonDetailPage() {
         loadPkmn().catch(error => {
             console.error('Failed to load Pokemon: ', error);
         });
-    }, [pokemon]);
+    }, [location]);
 
     // Getters and setters
 
@@ -31,10 +31,10 @@ export function PokemonDetailPage() {
     // Display functions
 
     function displayMainContent() {
-        return <div className="flex justify-between items-center w-full">
+        return <div className="flex justify-between flex-1 items-start w-full h-[500px]">
             <PokemonStatsList pokemon={pokemon}/>
-            <div className="flex justify-center">
-                <img src={url} alt={pokemon.name}/>
+            <div className="flex justify-center items-center h-full flex-1 max-h-[400px] max-w-[320px] my-auto">
+                <img src={url} alt={pokemon.name} className="my-auto h-full"/>
             </div>
             <ReviewCard pokemon={pokemon}/>
         </div>
