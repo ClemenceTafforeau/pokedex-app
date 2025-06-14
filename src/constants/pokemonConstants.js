@@ -31,3 +31,6 @@ export const MAX_STAT = {
     speed: 120,
     hp: 105,
 };
+
+export const MIN_PKMN_ID = 1;
+export const MAX_PKMN_ID = 151;

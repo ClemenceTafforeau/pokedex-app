@@ -1,5 +1,5 @@
-export function FullScreenBgImg() {
+export function FullScreenBgImg({path, alt}) {
     return (
-        <p>Test</p>
+        <img src={path} alt={alt} className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 object-cover w-1/4"/>
     )
 }

@@ -1,5 +1,49 @@
-export function Navigation() {
+import {Link, useLocation} from "react-router";
+import {useEffect, useState} from "react";
+import {ROUTES} from "../../router/routes.js";
+import {MAX_PKMN_ID, MIN_PKMN_ID} from "../../constants/pokemonConstants.js";
+import {CircleChevronLeft, CircleChevronRight} from "lucide-react";
+
+export function Navigation({id}) {
+    const location = useLocation();
+    const [previous, setPrevious] = useState(Number(id) - 1);
+    const [next, setNext] = useState(Number(id) + 1);
+
+    useEffect(() => {
+        setNavigation();
+    }, [location]);
+
+    function setNavigation() {
+        if (Number(id) === MIN_PKMN_ID) {
+            setPrevious(id);
+            setNext(Number(id) + 1);
+        } else if (Number(id) === MAX_PKMN_ID) {
+            setPrevious(Number(id) - 1);
+            setNext(id);
+        } else {
+            setPrevious(Number(id) - 1);
+            setNext(Number(id) + 1);
+        }
+    }
+
+    function displayLinks() {
+        return <div className="flex justify-between">
+            <Link to={ROUTES.PKMN_DETAIL.replace(':id', String(previous))}
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center"
+                  style={Number(id) === MIN_PKMN_ID ? {pointerEvents: "none"} : null}
+            >
+                <CircleChevronLeft color="oklch(70.5% 0.015 286.067)" size="24"/>
+            </Link>
+            <Link to={ROUTES.PKMN_DETAIL.replace(':id', String(next))}
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center"
+                  style={Number(id) === MAX_PKMN_ID ? {pointerEvents: "none"} : null}
+            >
+                <CircleChevronRight color="oklch(70.5% 0.015 286.067)" size="24"/>
+            </Link>
+        </div>
+    }
+
     return (
-        <p>Test</p>
+        displayLinks()
     )
 }

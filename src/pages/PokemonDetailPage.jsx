@@ -1,5 +1,40 @@
+import {useParams} from "react-router";
+import {Navigation as NavigationComponent} from "../components/shared/Navigation.jsx";
+import {getPkmn, getPkmnImgUrl} from "../api/api.js";
+import {useEffect, useState} from "react";
+import {FullScreenBgImg} from "../components/shared/FullScreenBgImg.jsx";
+
 export function PokemonDetailPage() {
+    const [pokemon, setPokemon] = useState(null);
+
+    const params = useParams();
+    const pokemonId = params.id;
+    const url = getPkmnImgUrl(pokemonId);
+
+    // useEffects
+
+    useEffect(() => {
+        loadPkmn().catch(error => {
+            console.error('Failed to load Pokemon: ', error);
+        });
+    }, []);
+
+    // Getters and setters
+
+    async function loadPkmn() {
+        const response = await getPkmn(pokemonId);
+        setPokemon(response);
+    }
+
     return (
-        <p>Test</p>
+        <main className="px-8 py-4 max-w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6">
+            <NavigationComponent id={pokemonId}/>
+            <FullScreenBgImg path="/img/pokeball_bg.svg" alt=""/>
+{/*            <div>
+                <div className="flex justify-center">
+                    <img src={url} alt={pokemon.name} className="h-32"/>
+                </div>
+            </div>*/}
+        </main>
     )
 }
