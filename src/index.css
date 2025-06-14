@@ -12,6 +12,12 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+}
+
 body {
   min-height: 100vh;
   display: flex;

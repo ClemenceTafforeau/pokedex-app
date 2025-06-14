@@ -1,20 +1,10 @@
 import {Link} from "react-router";
 import {ROUTES} from "../../router/routes.js";
 import {getPkmnImgUrl} from "../../api/api.js";
-import {BtnPillType} from "./BtnPillType.jsx";
+import {displayTypes} from "../../utils/usePokemonTypes.jsx";
 
 export function PokemonCardItem({pokemon}) {
     const url = getPkmnImgUrl(pokemon.id);
-
-    const displayTypes = () => {
-        const buttons = [];
-
-        pokemon.types.map((type, index) => {
-            buttons.push(<BtnPillType key={index} type={type}/>);
-        });
-
-        return buttons;
-    }
 
     return (
         <li className="w-full justify-self-center">
@@ -29,7 +19,7 @@ export function PokemonCardItem({pokemon}) {
                 <h2 className="font-display text-center">{pokemon.name}</h2>
                 <hr className="border-gray-200"/>
                 <div className="flex gap-2 justify-end">
-                    {displayTypes()}
+                    {displayTypes(pokemon)}
                 </div>
             </Link>
         </li>

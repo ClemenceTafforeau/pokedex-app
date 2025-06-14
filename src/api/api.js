@@ -20,6 +20,16 @@ export async function getAllPkmns() {
 
 export async function getPkmn(id) {
     const url = `${baseUrl}pokemons/${id}`;
+
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+
+            return await response.json();
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 export async function updatePkmn(id, content) {
