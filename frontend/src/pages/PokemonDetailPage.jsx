@@ -8,12 +8,22 @@ import {ReviewCard} from "../components/user/ReviewCard.jsx";
 
 export function PokemonDetailPage() {
     const [pokemon, setPokemon] = useState(null);
+    const [loading, setLoading] = useState(true);
     const location = useLocation();
     const params = useParams();
     const pokemonId = params.id;
     const url = getPkmnImgUrl(pokemonId);
 
     // useEffects
+
+    useEffect(() => {
+        if (!loading) {
+            setLoading(true);
+        }
+        setTimeout(() => {
+            setLoading(false);
+        }, 100);
+    }, [location])
 
     useEffect(() => {
         loadPkmn().catch(error => {
@@ -33,7 +43,8 @@ export function PokemonDetailPage() {
     function displayMainContent() {
         return <div className="flex justify-between flex-1 items-start w-full h-[500px]">
             <PokemonStatsList pokemon={pokemon}/>
-            <div className="flex justify-center items-center h-full flex-1 max-h-[400px] max-w-[320px] my-auto">
+            <div key={pokemon.name}
+                 className={`flex justify-center items-center h-full flex-1 max-h-[400px] max-w-[320px] my-auto transition ease-in-out duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}>
                 <img src={url} alt={pokemon.name} className="my-auto h-full"/>
             </div>
             <ReviewCard pokemon={pokemon}/>

@@ -1,15 +1,17 @@
-import {displayTypes} from "../../utils/usePokemonTypes.jsx";
+import {displayTypes, getTypeColor} from "../../utils/usePokemonTypes.jsx";
 import {PokemonStatsItem} from "./PokemonStatsItem.jsx";
-import {usePokemonStatsMapping} from "../../utils/useMapping.js";
+import {capitalizedToLowerCase, usePokemonStatsMapping} from "../../utils/useMapping.js";
 
 export function PokemonStatsList({pokemon}) {
     const mappedStats = usePokemonStatsMapping(pokemon.base);
+    const type = capitalizedToLowerCase(pokemon.types).join('-');
+    const color = getTypeColor(type);
 
     function displayStats() {
         const stats = [];
 
         Object.entries(mappedStats).map(([key, value]) => {
-            stats.push(<PokemonStatsItem key={key} stat={value}/>);
+            stats.push(<PokemonStatsItem key={key} stat={value} color={color}/>);
         });
 
         return stats;

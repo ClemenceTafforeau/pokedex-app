@@ -1,4 +1,4 @@
-export function PokemonStatsItem({stat}) {
+export function PokemonStatsItem({stat, color}) {
     const maxWidth = 280;
 
     function calcProgressBarWidth() {
@@ -7,7 +7,6 @@ export function PokemonStatsItem({stat}) {
         } else {
             return maxWidth;
         }
-
     }
 
     return (
@@ -16,7 +15,8 @@ export function PokemonStatsItem({stat}) {
             <div className="flex items-center justify-between">
                 <div className="relative w-fit">
                     <div className="bg-zinc-600 h-3 rounded-sm" style={{width: maxWidth}}></div>
-                    <div className="absolute top-0 left-0 bg-yellow-300 h-3 rounded-sm" style={{width: calcProgressBarWidth()}}></div>
+                    <div className={`absolute top-0 z-10 left-0 h-3 rounded-sm bg-zinc-200 opacity-70 transition-[min-width] ease-in-out duration-300`} style={{minWidth: calcProgressBarWidth()}}></div>
+                    <div className={`absolute z-0 inset-0 h-3 blur-sm h-3 rounded-sm bg-[${color}] animate-pulse transition-[max-width] ease-in-out duration-300`} style={{maxWidth: calcProgressBarWidth() + 4}}></div>
                 </div>
                 <p className="flex gap-1">
                     <span className="font-bold">{stat.value}</span>

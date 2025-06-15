@@ -33,7 +33,7 @@ export function PokemonCardItem({pokemon}) {
         }
 
         const array = PKMN_TYPES.filter(t => t.name === type);
-        setCurrentShadow(array.map(obj => obj.shadow));
+        setCurrentShadow(array.map(obj => obj.color));
     }
 
     return (
@@ -42,7 +42,7 @@ export function PokemonCardItem({pokemon}) {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <div className={`absolute z-0 -inset-1 blur-sm opacity-0 group-has-hover:opacity-100 transition ease-in-out duration-500 animate-pulse ${currentShadow}`}></div>
+            <div className={`absolute z-0 -inset-1 blur-sm opacity-0 group-has-hover:opacity-100 transition ease-in-out duration-500 animate-pulse bg-[${currentShadow}]`}></div>
             <Link to={ROUTES.PKMN_DETAIL.replace(':id', pokemon.id)}
                   className="bg-zinc-700 flex flex-col gap-4 p-4 relative z-10 rounded-md">
                 <div className="flex justify-end">
