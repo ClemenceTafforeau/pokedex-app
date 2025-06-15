@@ -4,7 +4,6 @@ import {PokemonCardList} from "../components/pokemon/PokemonCardList.jsx";
 import {SearchBar} from "../components/search/SearchBar.jsx";
 import {ScrollTopBtn} from "../components/shared/ScrollTopBtn.jsx";
 import {scrollToTop} from "../utils/useScroll.js";
-import {FullScreenBgImg} from "../components/shared/FullScreenBgImg.jsx";
 
 export function HomePage() {
     const [pokemons, setPokemons] = useState(null);
@@ -89,7 +88,9 @@ export function HomePage() {
                 <span>No Pokemon found for your search criteria:</span>
                 <span className="font-bold">{searchValue}</span>
             </p>
-            <FullScreenBgImg path="/img/empty_pokeball.svg" alt="" minWidth="300px"/>
+            <img src="/img/empty_pokeball.svg"
+                 alt=""
+                 className={`absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-5 object-cover xl:w-1/4 opacity-10 w-1/4`}/>
         </div>
     }
 
@@ -98,7 +99,7 @@ export function HomePage() {
     }
 
     function displayLoading() {
-        return "Loading...";
+        return <p className="text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</p>;
     }
 
     function displayMainContent() {
@@ -119,7 +120,7 @@ export function HomePage() {
     return (
         <main className="px-6 min-[500px]:px-8 py-4 w-full lg:max-w-[1280px] 2xl:max-w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6 relative">
             <div>
-                {pokemons ? displaySearchBar() : displayLoading()}
+                {pokemons ? displaySearchBar() : null}
             </div>
             <div>
                 {pokemons ? displayMainContent() : displayLoading()}
