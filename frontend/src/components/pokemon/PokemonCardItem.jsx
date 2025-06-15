@@ -17,15 +17,15 @@ export function PokemonCardItem({pokemon}) {
 
     useEffect(() => {
         if (hover) {
-            displayBoxShadow();
+            setBoxShadow();
         } else {
             setCurrentShadow("");
         }
     }, [hover])
 
-    // Display functions
+    // Getters and setters
 
-    function displayBoxShadow() {
+    function setBoxShadow() {
         let type = '';
 
         if (lowerCaseType.length > 1) {
@@ -38,13 +38,25 @@ export function PokemonCardItem({pokemon}) {
         setCurrentShadow(array.map(obj => obj.color));
     }
 
+    // Display functions
+
+    function displayBoxShadow() {
+        if (lowerCaseType.length === 1) {
+            return {backgroundColor: currentShadow}
+        } else {
+            return {backgroundImage: currentShadow}
+        }
+    }
+
     return (
         <li
             className={`relative group min-w-[220px] isolate w-full justify-self-center rounded-md border border-zinc-600 scale-100 transition ease-in-out duration-300 rotate-z-0 hover:rotate-z-[2deg] hover:scale-105`}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <div className={`absolute z-0 -inset-1 blur-sm opacity-0 group-has-hover:opacity-100 transition ease-in-out duration-500 animate-pulse bg-[${currentShadow}]`}></div>
+            <div className={`absolute z-0 -inset-1 blur-sm opacity-0 group-has-hover:opacity-100 transition ease-in-out duration-500 animate-pulse`}
+                 style={displayBoxShadow()}>
+            </div>
             <Link to={ROUTES.PKMN_DETAIL.replace(':id', pokemon.id)}
                   className="bg-zinc-700 flex flex-col gap-4 p-4 relative z-10 rounded-md">
                 <div className="flex justify-end">
