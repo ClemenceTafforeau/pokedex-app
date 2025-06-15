@@ -18,10 +18,10 @@ export function PokemonStatsList({pokemon}) {
     }
 
     return (
-        <div className="flex flex-col gap-8 w-1/4">
-            <div className="flex justify-between">
+        <div className="flex flex-col gap-8 2xl:w-1/4 flex-1 max-w-96 h-full">
+            <div className="flex flex-col gap-4 2xl:flex-row 2xl:gap-0 justify-between">
                 <h1 className="font-display text-2xl">{pokemon.name}</h1>
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex flex-row 2xl:flex-col 2xl:items-end gap-2">
                     {displayTypes(pokemon)}
                 </div>
             </div>

@@ -1379,7 +1379,7 @@
     },
     {
       "id": "41",
-      "like": 0,
+      "like": 3,
       "name": "Nosferapti",
       "types": [
         "Poison",
@@ -5603,6 +5603,12 @@
       "author": "Me",
       "content": "clear",
       "pokemonId": "7"
+    },
+    {
+      "id": "4703",
+      "author": "Me",
+      "content": "Test review",
+      "pokemonId": "41"
     }
   ]
 }

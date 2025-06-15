@@ -38,7 +38,7 @@ export function PokemonCardItem({pokemon}) {
 
     return (
         <li
-            className={`relative group isolate w-full justify-self-center rounded-md border border-zinc-600 scale-100 transition ease-in-out duration-300 rotate-z-0 hover:rotate-z-[2deg] hover:scale-105`}
+            className={`relative group min-w-[220px] isolate w-full justify-self-center rounded-md border border-zinc-600 scale-100 transition ease-in-out duration-300 rotate-z-0 hover:rotate-z-[2deg] hover:scale-105`}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >

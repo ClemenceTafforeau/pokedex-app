@@ -85,11 +85,11 @@ export function HomePage() {
 
     function getHasNoResultText() {
         return <div>
-            <p className="text-lg flex gap-2">
+            <p className="text-lg flex flex-wrap gap-2">
                 <span>No Pokemon found for your search criteria:</span>
                 <span className="font-bold">{searchValue}</span>
             </p>
-            <FullScreenBgImg path="/img/empty_pokeball.svg" alt=""/>
+            <FullScreenBgImg path="/img/empty_pokeball.svg" alt="" minWidth="300px"/>
         </div>
     }
 
@@ -117,7 +117,7 @@ export function HomePage() {
     }
 
     return (
-        <main className="px-8 py-4 w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6 relative">
+        <main className="px-6 min-[500px]:px-8 py-4 w-full lg:max-w-[1280px] 2xl:max-w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6 relative">
             <div>
                 {pokemons ? displaySearchBar() : displayLoading()}
             </div>

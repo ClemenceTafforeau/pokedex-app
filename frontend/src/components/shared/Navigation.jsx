@@ -27,7 +27,7 @@ export function Navigation({id}) {
     }
 
     function displayLinks() {
-        return <div className="flex justify-between rounded-md border border-zinc-600 text-zinc-400 px-2">
+        return <div className="flex justify-between rounded-md border border-zinc-600 text-zinc-400 px-2 w-full">
             <Link to={ROUTES.PKMN_DETAIL.replace(':id', String(previous))}
                   className="h-10 cursor-pointer flex justify-center items-center gap-2"
                   style={Number(id) === MIN_PKMN_ID ? {pointerEvents: "none"} : null}

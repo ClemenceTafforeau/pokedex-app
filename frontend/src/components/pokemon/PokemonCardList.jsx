@@ -13,7 +13,7 @@ export function PokemonCardList({pokemons}) {
     }
 
     return (
-        <ul className="grid grid-cols-6 gap-8">
+        <ul className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-8">
             {pokemons ? displayCardItems() : "Loading..."}
         </ul>
     )

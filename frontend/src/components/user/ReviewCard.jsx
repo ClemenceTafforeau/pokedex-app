@@ -71,6 +71,10 @@ export function ReviewCard({pokemon}) {
             reviewsArray.push(<ReviewItem key={review.id} review={review}/>);
         })
 
+        if (reviewsArray.length === 0) {
+            return <p className="text-sm text-zinc-400">There are no reviews for this Pokemon. Be the first to write one!</p>
+        }
+
         return reviewsArray;
     }
 
@@ -94,7 +98,7 @@ export function ReviewCard({pokemon}) {
     }
 
     return (
-        <div className="h-full flex flex-col gap-3 w-1/4 max-h-[500px]">
+        <div className="h-full flex flex-col gap-3 w-full md:w-[360px] 2xl:w-1/4 max-h-[500px]">
             <div className="flex justify-between items-center text-sm mb-4">
                 <p className="font-display text-xl">Reviews</p>
                 <Likes pokemonId={pokemon.id} likes={pokemon.like}/>
@@ -104,9 +108,12 @@ export function ReviewCard({pokemon}) {
             <ul className="flex flex-col gap-1">
                 {errors ? displayErrors() : null}
             </ul>
-            <ul ref={reviewsList} className="flex flex-col gap-4 overflow-y-scroll pr-4">
-                {pokemon ? displayReviews() : displayLoading()}
-            </ul>
+            <div className="px-3 py-3 rounded-md bg-zinc-600 h-fit">
+                <ul ref={reviewsList}
+                    className="flex flex-col gap-4 overflow-y-scroll h-[320px] pr-1">
+                    {pokemon ? displayReviews() : displayLoading()}
+                </ul>
+            </div>
         </div>
     )
 }
