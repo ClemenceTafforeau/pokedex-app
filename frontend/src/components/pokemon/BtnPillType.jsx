@@ -2,7 +2,6 @@ import {PKMN_TYPES} from "../../constants/pokemonConstants.js";
 
 export function BtnPillType({type}) {
     const pkmnType = PKMN_TYPES.find(t => t.name === type.toLowerCase());
-    console.log(pkmnType);
     const color = pkmnType.color;
 
     return (

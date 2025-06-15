@@ -33,7 +33,6 @@ export function PokemonCardItem({pokemon}) {
         }
 
         const array = PKMN_TYPES.filter(t => t.name === type);
-        console.log(array, type);
         setCurrentShadow(array.map(obj => obj.shadow));
     }
 

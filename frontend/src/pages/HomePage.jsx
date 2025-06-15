@@ -2,11 +2,14 @@ import {getAllPkmns} from "../api/api.js";
 import {useEffect, useState} from "react";
 import {PokemonCardList} from "../components/pokemon/PokemonCardList.jsx";
 import {SearchBar} from "../components/search/SearchBar.jsx";
+import {ScrollTopBtn} from "../components/shared/ScrollTopBtn.jsx";
+import {scrollToTop} from "../utils/useScroll.js";
 
 export function HomePage() {
     const [pokemons, setPokemons] = useState(null);
     const [filteredPokemons, setFilteredPokemons] = useState(null);
     const [searchValue, setSearchValue] = useState('');
+    const [scrollY, setScrollY] = useState(0);
     const [hasNoResult, setHasNoResult] = useState(false);
 
     // useEffects
@@ -20,6 +23,16 @@ export function HomePage() {
     useEffect(() => {
         filterPokemons();
     }, [searchValue]);
+
+    useEffect(() => {
+        function watchScroll() {
+            window.addEventListener("scroll", handleScrollY);
+        }
+        watchScroll();
+        return () => {
+            window.addEventListener("scroll", handleScrollY);
+        }
+    })
 
     // Getters and setters
 
@@ -51,6 +64,10 @@ export function HomePage() {
 
     function handleSearch(value) {
         setSearchValue(value);
+    }
+
+    function handleScrollY() {
+        setScrollY(window.scrollY);
     }
 
     // Validation functions
@@ -93,13 +110,14 @@ export function HomePage() {
     }
 
     return (
-        <main className="px-8 py-4 w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6">
+        <main className="px-8 py-4 w-[1536px] mx-auto mb-24 mt-18 flex flex-col gap-6 relative">
             <div>
                 {pokemons ? displaySearchBar() : displayLoading()}
             </div>
             <div>
                 {pokemons ? displayMainContent() : displayLoading()}
             </div>
+            <ScrollTopBtn scrollY={scrollY} onClickScroll={scrollToTop}/>
         </main>
 
     )
