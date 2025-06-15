@@ -13,7 +13,7 @@ export function HomePage() {
     const [scrollY, setScrollY] = useState(0);
     const [hasNoResult, setHasNoResult] = useState(false);
 
-    // useEffects
+    // useEffect
 
     useEffect(() => {
         loadPkmns().catch(error => {

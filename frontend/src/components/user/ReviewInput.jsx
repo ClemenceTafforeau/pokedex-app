@@ -22,7 +22,8 @@ export function ReviewInput({placeholder, onSubmit, onError}) {
         <div className="flex flex-col gap-2">
             <div
                 className="relative w-full flex gap-2 items-center rounded-md border border-zinc-600 has-focus:border-zinc-600 transition ease-in-out duration-500">
-                <input ref={reviewInput} onKeyUp={(e) => handleSubmit(e)}
+                <input ref={reviewInput}
+                       onKeyUp={(e) => handleSubmit(e)}
                        type="text"
                        maxLength="255"
                        placeholder={placeholder}

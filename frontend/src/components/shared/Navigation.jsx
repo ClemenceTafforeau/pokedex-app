@@ -9,9 +9,13 @@ export function Navigation({id}) {
     const [previous, setPrevious] = useState(Number(id) - 1);
     const [next, setNext] = useState(Number(id) + 1);
 
+    // useEffect
+
     useEffect(() => {
         setNavigation();
     }, [location]);
+
+    // Getters and setters
 
     function setNavigation() {
         if (Number(id) === MIN_PKMN_ID) {
@@ -25,6 +29,8 @@ export function Navigation({id}) {
             setNext(Number(id) + 1);
         }
     }
+
+    // Display functions
 
     function displayLinks() {
         return <div className="flex justify-between rounded-md border border-zinc-600 text-zinc-400 px-2 w-full">

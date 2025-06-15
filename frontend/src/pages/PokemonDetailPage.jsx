@@ -13,7 +13,7 @@ export function PokemonDetailPage() {
     const pokemonId = params.id;
     const url = getPkmnImgUrl(pokemonId);
 
-    // useEffects
+    // useEffect
 
     useEffect(() => {
         if (!loading) {

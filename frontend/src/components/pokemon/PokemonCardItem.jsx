@@ -13,6 +13,8 @@ export function PokemonCardItem({pokemon}) {
     const url = getPkmnImgUrl(pokemon.id);
     const lowerCaseType = capitalizedToLowerCase(pokemon.types);
 
+    // useEffect
+
     useEffect(() => {
         if (hover) {
             displayBoxShadow();

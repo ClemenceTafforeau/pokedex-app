@@ -41,10 +41,13 @@ export function Likes({pokemonId, likes}) {
 
     return (
         <div className="flex gap-2">
-            <button type="button" onClick={updateLikesAmount} disabled={isDisabled} className="flex justify-center items-center rounded-full bg-zinc-700 hover:bg-red-500 border border-zinc-600 flex gap-2 w-10 h-10 cursor-pointer transition ease-in-out duration-300"
-                    style={{ color: dynamicColor }}
+            <button type="button"
+                    onClick={updateLikesAmount}
                     onMouseEnter={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}>
+                    onMouseLeave={() => setHover(false)}
+                    disabled={isDisabled}
+                    className="flex justify-center items-center rounded-full bg-zinc-700 hover:bg-red-500 border border-zinc-600 flex gap-2 w-10 h-10 cursor-pointer transition ease-in-out duration-300"
+                    style={{ color: dynamicColor }}>
                 <HeartPlus/>
             </button>
             <div className="flex justify-center items-center rounded-full w-10 h-10 border border-zinc-600">
