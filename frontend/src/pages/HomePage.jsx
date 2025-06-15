@@ -4,6 +4,7 @@ import {PokemonCardList} from "../components/pokemon/PokemonCardList.jsx";
 import {SearchBar} from "../components/search/SearchBar.jsx";
 import {ScrollTopBtn} from "../components/shared/ScrollTopBtn.jsx";
 import {scrollToTop} from "../utils/useScroll.js";
+import {FullScreenBgImg} from "../components/shared/FullScreenBgImg.jsx";
 
 export function HomePage() {
     const [pokemons, setPokemons] = useState(null);
@@ -83,7 +84,13 @@ export function HomePage() {
     }
 
     function getHasNoResultText() {
-        return <p>No Pokemon found for your search criteria: {searchValue}</p>
+        return <div>
+            <p className="text-lg flex gap-2">
+                <span>No Pokemon found for your search criteria:</span>
+                <span className="font-bold">{searchValue}</span>
+            </p>
+            <FullScreenBgImg path="/img/empty_pokeball.svg" alt=""/>
+        </div>
     }
 
     function displaySearchBar() {

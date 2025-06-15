@@ -72,7 +72,7 @@
     },
     {
       "id": "3",
-      "like": 10,
+      "like": 14,
       "name": "Florizarre",
       "types": [
         "Grass",
@@ -175,7 +175,7 @@
     },
     {
       "id": "6",
-      "like": 0,
+      "like": 8,
       "name": "Dracaufeu",
       "types": [
         "Fire",
