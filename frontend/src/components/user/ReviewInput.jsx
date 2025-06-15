@@ -5,8 +5,8 @@ export function ReviewInput({placeholder, onSubmit, onError}) {
     const reviewInput = useRef(null);
 
     function handleSubmit(e) {
-        if (e.target.value.length === 255) {
-            onError("length", "Your review should be 255 characters long or fewer.");
+        if (e.target.value.length === 100) {
+            onError("length", "Your review should be 100 characters long or fewer.");
             return;
         } else {
             onError("length", "");
@@ -25,14 +25,14 @@ export function ReviewInput({placeholder, onSubmit, onError}) {
                 <input ref={reviewInput}
                        onKeyUp={(e) => handleSubmit(e)}
                        type="text"
-                       maxLength="255"
+                       maxLength="100"
                        placeholder={placeholder}
                        className="py-2 px-3 w-full"/>
 
             </div>
             <p className="text-sm text-zinc-400 flex gap-2 items-center">
                 <span><CircleAlert size="14"/></span>
-                <span>Max. 255 characters</span>
+                <span>Max. 100 characters</span>
             </p>
         </div>
     )
