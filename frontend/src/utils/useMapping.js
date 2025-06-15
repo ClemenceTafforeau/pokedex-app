@@ -29,3 +29,7 @@ export function usePokemonStatsMapping(stats) {
 
     return statsObj;
 }
+
+export function capitalizedToLowerCase(values) {
+    return values.map(value => value.toLowerCase());
+}

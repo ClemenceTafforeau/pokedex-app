@@ -27,18 +27,18 @@ export function Navigation({id}) {
     }
 
     function displayLinks() {
-        return <div className="flex justify-between">
+        return <div className="flex justify-between rounded-md border border-zinc-600">
             <Link to={ROUTES.PKMN_DETAIL.replace(':id', String(previous))}
                   className="w-10 h-10 cursor-pointer flex justify-center items-center"
                   style={Number(id) === MIN_PKMN_ID ? {pointerEvents: "none"} : null}
             >
-                <CircleChevronLeft color="oklch(70.5% 0.015 286.067)" size="24"/>
+                <CircleChevronLeft color="oklch(55.2% 0.016 285.938)" size="24"/>
             </Link>
             <Link to={ROUTES.PKMN_DETAIL.replace(':id', String(next))}
                   className="w-10 h-10 cursor-pointer flex justify-center items-center"
                   style={Number(id) === MAX_PKMN_ID ? {pointerEvents: "none"} : null}
             >
-                <CircleChevronRight color="oklch(70.5% 0.015 286.067)" size="24"/>
+                <CircleChevronRight color="oklch(55.2% 0.016 285.938)" size="24"/>
             </Link>
         </div>
     }

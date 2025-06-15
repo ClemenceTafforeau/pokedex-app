@@ -30,7 +30,7 @@ export function Likes({pokemonId, likes}) {
             <button type="button" onClick={updateLikesAmount} disabled={isDisabled} className="flex justify-center items-center text-white rounded-full bg-red-500 flex gap-2 w-10 h-10 cursor-pointer">
                 <HeartPlus color="white"/>
             </button>
-            <div className="flex justify-center items-center rounded-full w-10 h-10 border border-gray-200">
+            <div className="flex justify-center items-center rounded-full w-10 h-10 border border-zinc-600">
                 <p>{likesAmount}</p>
             </div>
         </div>

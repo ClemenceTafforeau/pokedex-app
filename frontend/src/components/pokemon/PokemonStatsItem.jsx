@@ -15,7 +15,7 @@ export function PokemonStatsItem({stat}) {
             <p className="font-display text-sm">{stat.label}</p>
             <div className="flex items-center justify-between">
                 <div className="relative w-fit">
-                    <div className="bg-gray-200 h-3 rounded-sm" style={{width: maxWidth}}></div>
+                    <div className="bg-zinc-600 h-3 rounded-sm" style={{width: maxWidth}}></div>
                     <div className="absolute top-0 left-0 bg-yellow-300 h-3 rounded-sm" style={{width: calcProgressBarWidth()}}></div>
                 </div>
                 <p className="flex gap-1">
