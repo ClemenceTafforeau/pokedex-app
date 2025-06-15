@@ -29,7 +29,27 @@ From the root of the project, write the following commands:
 The app can be visited at ```localhost:3000/```
 
 ---
-## Technologies
+## Technologies & libraries
+- React
+- React Router
+- Axios
+- Lucide-React
+- Tailwind CSS
 
+---
+## Features
+### 3 pages
+- Home page
+- Pokemon details page
+- Not found page
+
+### Main features
+- Responsive design
+- Filtering the Pokemon list by name or type
+- Scroll to top button on the home page
+- Pokemon stats : animated progress bars
+- Reviews system : the user can read and leave reviews for each Pokemon of the list
+- Likes system : the user can add likes to each Pokemon of the list
+- Micro-animations (gotta find 'em all!)
 
 
